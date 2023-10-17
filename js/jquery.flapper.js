@@ -247,8 +247,8 @@
                             (_this.options.timing - _this.options.min_timing)
                             / distance + _this.options.min_timing
                     );
-                    _this.increment(duration);
-                    _this.timing_timer = setTimeout(frameFunc, duration);
+                    _this.increment(duration * 0.2);
+                    _this.timing_timer = setTimeout(frameFunc, duration * 0.2);
                 }
 
             }

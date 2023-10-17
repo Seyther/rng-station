@@ -171,7 +171,7 @@
 
 .flapper .digit {
     height: 54px;
-    width: 40px;
+    width: 50px;	/* changed from 40px */
     font-size: inherit;
     line-height: inherit;
 }

@@ -6,28 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RNG Station</title>
     <link href="css/flapper.css" type="text/css" rel="stylesheet" />
-    <!-- <link href="css/index.css" type="text/css" rel="stylesheet" /> -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style>
+
+    .flapper.yellow .digit {
+        background-color: #222;
+        border: 1px solid #333;
+        font-weight: bold;
+    }
+
+    .flapper.yellow .digit div {
+        color: yellow;
+        padding: 0px;
+        background-color: black;
+    }
+
+    div.flapper {
+        width: 100%;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    button {
+        width: 100%;
+        height: 90px;
+        margin: 4px 2px;
+        font-size: 275%;
+        border: solid;
+        display: inline-block;
+        border-radius:15px;
+        padding: 5px;
+        box-shadow: 3px 3px #8093F1;
+        text-align: center;
+    }
+
+    button.roll {
+        background-color: var(--primary_button);
+        color: var(--primary_button_text);
+    }
+
+    button.wikipedia {
+        background-color: lightgrey;
+        color: var(--primary_button_text);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      color: #333;
+      overflow:visible;
+      text-align: left;
+      height: 5px;
+    }
+
+    hr::after {
+      background: #fff;
+      padding: 0 4px;
+      position: relative;
+      top: -13px;
+    }
+
+    hr.station::after {
+      content: 'Station';
+    }
+
+    hr.location::after {
+      content: 'Location';
+    }
+
+</style>
 </head>
-<body>
-    <div>
-        <div>
-            <h1>RNG Station</h1>
-        </div>
-        <div>
-            <input class="M" id="lineDisplay" />
-        </div>
-        <div>
-            <input class="M" id="nameDisplay" />
-        </div>
-        <div>
-            <button onclick="updateDisplay()">Roll</button>
-        </div>
+<body onload="bodyLoadFunction()">
+    <div class="flapper">
+        <input class="M" id="lineDisplay" />
     </div>
+    <hr class="station" />
+        <div class="flapper">
+            <input class="M yellow" id="nameDisplay_English" />
+        </div>
+        <div class="flapper">
+            <input class="M yellow" id="nameDisplay_Hangul" />
+        </div>
+    <hr class="location" />
+        <div class="flapper">
+            <input class="M" id="nameDisplay_Location1" />
+        </div>
+        <div class="flapper">
+            <input class="M" id="nameDisplay_LocationN" />
+        </div>
+    <hr>
+        <button type="button" class="roll" onclick="Roll()">Roll</button>
+        <button type="button" class="wikipedia" id="button_english_wikipedia" onclick="visitEnglishWikipedia()" disabled="true">Wikipedia</button>
+        <button type="button" class="wikipedia" id="button_hangul_wikipedia" onclick="visitHangulWikipedia()" disabled="true">위키백과</button>
+    <hr>
+        <div class="location-div">
+            <form name="location-list" id="location-list-form">
+                <input type="checkbox" id="inputID_Seoul" name="inputName_Seoul" value="Seoul" checked>
+                <label class="checkbox-label" for="inputID_Seoul">Seoul</label>
+
+                <input type="checkbox" id="inputID_Gyeonggi-do" name="inputName_Gyeonggi-do" value="Gyeonggi-do">
+                <label class="checkbox-label" for="inputID_Gyeonggi-do">Gyeonggi-do</label>
+
+                <input type="checkbox" id="inputID_Incheon" name="inputName_Incheon" value="Incheon">
+                <label class="checkbox-label" for="inputID_Incheon">Incheon</label>
+
+                <input type="checkbox" id="inputID_Chungcheongnam-do" name="inputName_Chungcheongnam-do" value="Chungcheongnam-do">
+                <label class="checkbox-label" for="inputID_Chungcheongnam-do">Chungcheongnam-do</label>
+
+            </form>
+        </div>
+
+    <hr>
+    <p><span id="stationTextEnglish"></span></p>
+    <p><span id="stationTextHangul"></span></p>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script src="js/jquery.transform-0.9.3.min.js"></script>
     <script src="js/jquery.flapper.js"></script>
-    <script src="js/subway.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/new.js"></script>
 </body>
 </html>
